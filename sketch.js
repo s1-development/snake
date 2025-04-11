@@ -35,25 +35,25 @@ class Snake {
   }
   
   update() {
-    this.lastX = this.body[this.body.length-1].x;     // track the last X and Y  
-    this.lastY = this.body[this.body.length-1].y;     // so we can put the new body there
-    for (let i = this.body.length-1; i >= 1; i--) {
-      this.body[i].x = this.body[i-1].x;
-      this.body[i].y = this.body[i-1].y;
-      
-      if (this.dir == "right") {
-      this.body[0].x += width / GRID_SIZE;  
-      } else if (this.dir == "down") {
-      this.body[0].y += height / GRID_SIZE;
-      } else if (this.dir == "left") {
-      this.body[0].x -= width / GRID_SIZE;
-      } else if (this.dir == "up") {
-      this.body[0].y -= height / GRID_SIZE;
-      }
-      
-    }
-    
+    // this.lastX = this.body[this.body.length-1].x;     // track the last X and Y  
+    // this.lastY = this.body[this.body.length-1].y;     // so we can put the new body there
+    // for (let i = this.body.length-1; i >= 1; i--) {
+    //   this.body[i].x = this.body[i-1].x;
+    //   this.body[i].y = this.body[i-1].y;
+
+  // Update the head’s position
+  if (this.dir === "right") {
+    this.body[0].x += width / GRID_SIZE;
+  } else if (this.dir === "down") {
+    this.body[0].y += height / GRID_SIZE;
+  } else if (this.dir === "left") {
+    this.body[0].x -= width / GRID_SIZE;
+  } else if (this.dir === "up") {
+    this.body[0].y -= height / GRID_SIZE;
   }
+}
+    
+  
   
   grow() {
     this.body.push({x: this.lastX, y: this.lastY});
